@@ -37,7 +37,7 @@ describe('WelcomeComponent', () => {
     })
     it('should have a slogan: "Where less is more"', () => {
       const slogan = fixture.debugElement.nativeElement.querySelector('[data-jest=slogan]')
-      expect(slogan.textContent).toContain('Where less is more')
+      expect(slogan.textContent).toContain('Where less is')
     })
     it('should have a button: "Get Started"', () => {
       const startedButton = fixture.debugElement.nativeElement.querySelector('[data-jest=get-started-button]')
