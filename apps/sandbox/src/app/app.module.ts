@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import {TuiRootModule} from "@taiga-ui/core";
 
 @NgModule({
   declarations: [AppComponent],
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       { path: 'simplify', loadChildren: () => import('@katita/ui-components').then(lib => lib.SimplifySignInApp)}
     ], { initialNavigation: 'enabledBlocking' }),
+    TuiRootModule
   ],
   providers: [],
   bootstrap: [AppComponent],

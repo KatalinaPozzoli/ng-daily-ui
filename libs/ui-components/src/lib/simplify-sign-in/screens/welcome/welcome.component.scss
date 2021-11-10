@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&display=swap');
 :host {
-  position: relative;
   height: 100vh;
   flex-direction: column;
   display: grid;
@@ -8,22 +7,6 @@
     'titles'
     'cta';
   grid-template-rows: auto 107px;
-  &:before, &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: -1;
-  }
-  &::before{
-    background-image: url('/assets/simplify/background-image-simplify.jpg');
-    background-size: cover;
-    filter: blur(4px);
-  }
-  &::after{
-    background: linear-gradient(162.46deg, rgba(190, 181, 174, 0.75) 14.58%, rgba(237, 234, 231, 0.603064) 50.32%, rgba(201, 201, 201, 0.3675) 100%);  }
   .welcome{
     &__titles {
       grid-area: titles;
@@ -45,7 +28,7 @@
       font-weight: 500;
       &--highlighted{
         color: #8F9B8D;
-        font-weight: 700;
+        font-weight: 500;
       }
     }
     &__title{

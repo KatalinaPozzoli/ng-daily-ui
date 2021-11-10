@@ -56,7 +56,7 @@ describe('WelcomeComponent', () => {
         const getStartedButton = fixture.debugElement.nativeElement.querySelector('[data-jest=get-started-button]')
         const routerNavigate = jest.spyOn(TestBed.inject(Router), 'navigate')
         getStartedButton.click()
-        expect(routerNavigate).toHaveBeenCalledWith(['/login'])
+        expect(routerNavigate).toHaveBeenCalledWith(['/simplify','login'])
       })
     })
   });

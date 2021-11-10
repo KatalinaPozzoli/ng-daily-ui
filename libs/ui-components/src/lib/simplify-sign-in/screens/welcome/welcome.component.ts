@@ -15,7 +15,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   navigateToLogin(){
-    return this.router.navigate(['/login'])
+    return this.router.navigate(['/simplify', 'login'])
   }
 
 }
