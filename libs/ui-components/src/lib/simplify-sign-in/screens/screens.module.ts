@@ -7,13 +7,15 @@ import { LogInComponent } from './log-in/log-in.component';
 import {TuiInputModule} from "@taiga-ui/kit";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TuiLinkModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
+import { RegisterComponent } from './register/register.component';
 
 
 
 @NgModule({
   declarations: [
     WelcomeComponent,
-    LogInComponent
+    LogInComponent,
+    RegisterComponent
   ],
     imports: [
         CommonModule,

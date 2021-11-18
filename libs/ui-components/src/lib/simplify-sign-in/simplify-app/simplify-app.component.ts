@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {RelativeRootRouteService} from "../../shared/relative-root-route.service";
 
 @Component({
   selector: 'katita-simplify-app',
@@ -8,7 +10,9 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class SimplifyAppComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected route: ActivatedRoute, protected relativeRoot: RelativeRootRouteService) {
+    this.relativeRoot.next(route.parent || this.route)
+  }
 
   ngOnInit(): void {
   }

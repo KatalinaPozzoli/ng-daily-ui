@@ -3,19 +3,23 @@
   <h2 data-jest="subtitle" class="log-in__subtitle">Welcome back</h2>
 </section>
 <section class="log-in__form">
-  <form [formGroup]="logInForm">
+  <form [formGroup]="logInForm" class="log-in-form">
+    <div class="form__inputs">
     <tui-input data-jest="user-input" class="log-in-form__input" tuiTextfieldExampleText="Enter your user">
       User
     </tui-input>
     <tui-input data-jest="password-input" class="log-in-form__input" tuiTextfieldExampleText="Enter your password">
       Password
     </tui-input>
-    <a tuiLink data-jest="forgot-password-link" routerLink="recover-password" class="log-in-form__link">¿Forgot password?</a>
+      <a tuiLink data-jest="forgot-password-link" [routerLink]="['recover-password']" class="log-in-form__link">¿Forgot password?</a>
+    </div>
+    <div class="form__buttons">
     <button data-jest=log-in-button class="log-in-form__button" (click)="navigateToHome()"> Log In </button>
+    </div>
   </form>
 </section>
 <section class="log-in__cta">
   <p data-jest="register-text" class="cta__text">¿Don’t have an account?</p>
-  <a tuiLink data-jest="register-link" class="cta__register-link" routerLink="register">Register</a>
+  <a tuiLink data-jest="register-link" class="cta__register-link" [routerLink]="['register']" [relativeTo]="relativeRoot.root$ | async">Register</a>
 </section>
 

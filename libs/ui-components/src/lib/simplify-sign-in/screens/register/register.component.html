@@ -1,0 +1,29 @@
+<section class="register__title-section">
+  <h1 data-jest="title" class="register__title">¡Welcome!</h1>
+</section>
+<section class="register__form-section">
+  <form class="register-form">
+    <div class="form__inputs">
+      <tui-input data-jest="name-input" class="register-form__input" tuiTextfieldExampleText="Enter your name">
+        Name
+      </tui-input>
+      <tui-input data-jest="user-input" class="register-form__input" tuiTextfieldExampleText="Enter your user">
+        User
+      </tui-input>
+      <tui-input data-jest="password-input" class="register-form__input" tuiTextfieldExampleText="Enter your password">
+        Password
+      </tui-input>
+      <tui-input data-jest="repeat-password-input" class="register-form__input" tuiTextfieldExampleText="Repeat your password">
+        Repeat Password
+      </tui-input>
+    </div>
+   <div class="form__buttons">
+     <button data-jest=register-button class="register-form__button" (click)="navigateToHome()"> Register </button>
+   </div>
+  </form>
+</section>
+<section class="register__cta-section">
+  <p data-jest="log-in-text" class="cta__log-in-text">¿Already a member?</p>
+  <a tuiLink data-jest="log-in-link" class="cta__log-in-link" routerLink="login" [relativeTo]="relativeRoot.root">Log In</a>
+</section>
+

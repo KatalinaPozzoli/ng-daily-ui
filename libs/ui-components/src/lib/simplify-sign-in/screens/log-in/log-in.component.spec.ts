@@ -1,12 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import { LogInComponent } from './log-in.component';
 import {Router} from "@angular/router";
-import {Component} from "@angular/core";
+import {Component, DebugElement} from "@angular/core";
 import {RouterTestingModule} from "@angular/router/testing";
+import {By} from "@angular/platform-browser";
+import {RegisterComponent} from "../register/register.component";
 
 @Component({ template: '' })
-class HomeTestComponent {}
+class TestComponent {}
 
 describe('LogInComponent', () => {
   let component: LogInComponent;
@@ -15,7 +17,11 @@ describe('LogInComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LogInComponent],
-      imports: [RouterTestingModule.withRoutes([{ path: 'home', component: HomeTestComponent }])]
+      imports: [RouterTestingModule.withRoutes([
+        { path: 'home', component: TestComponent },
+        { path: 'recover-password', component: TestComponent },
+        { path: 'register', component: RegisterComponent }
+      ])]
     })
       .compileComponents();
   });
@@ -65,6 +71,12 @@ describe('LogInComponent', () => {
     })
   })
   describe('Functional Agreements', function () {
+    let router: Router;
+
+    beforeEach(() => {
+      router = TestBed.inject(Router)
+    })
+
     describe( 'Log In button', () =>{
       it('should call navigateToHome', () => {
         const logInButton = fixture.debugElement.nativeElement.querySelector('[data-jest=log-in-button]')
@@ -79,13 +91,21 @@ describe('LogInComponent', () => {
         expect(routerNavigate).toHaveBeenCalledWith(['home'])
       })
     })
-    /*describe('Forgot Password Link', () => {
-      it( 'should trigger the navigation event', () => {
-        const forgotPasswordLink = fixture.debugElement.nativeElement.querySelector('[data-jest=forgot-password-link]')
-        const routerNavigate = jest.spyOn(TestBed.inject(Router), 'navigate')
-        forgotPasswordLink.routerLink
-        expect(routerNavigate).toHaveBeenCalledWith('recover-password')
-      })
-    })*/
+    describe('Forgot Password Link', () => {
+      it( 'should trigger the navigation event', fakeAsync(() => {
+        const forgotPasswordLink: DebugElement = fixture.debugElement.query(By.css('[data-jest=forgot-password-link]'))
+        forgotPasswordLink.nativeElement.click()
+        tick();
+        expect(router.url).toBe(`/recover-password`)
+      }))
+    })
+    describe('Register Link', () => {
+      it('should navigate to /register', fakeAsync(() => {
+        const registerLink = fixture.debugElement.query(By.css('[data-jest=register-link]'))
+        registerLink.nativeElement.click()
+        tick()
+        expect(router.url).toBe('/register')
+      }))
+    })
   })
 })
