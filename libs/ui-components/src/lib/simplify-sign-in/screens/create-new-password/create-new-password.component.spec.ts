@@ -1,7 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import { CreateNewPasswordComponent } from './create-new-password.component';
 import {By} from "@angular/platform-browser";
+import {Component } from "@angular/core";
+import {Router} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
+
+@Component({ template: '' })
+class TestComponent {}
 
 describe('CreateNewPasswordComponent', () => {
   let component: CreateNewPasswordComponent;
@@ -9,7 +15,10 @@ describe('CreateNewPasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateNewPasswordComponent ]
+      declarations: [ CreateNewPasswordComponent ],
+      imports: [RouterTestingModule.withRoutes([
+        { path: 'home', component: TestComponent },
+      ])]
     })
     .compileComponents();
   });
@@ -34,7 +43,7 @@ describe('CreateNewPasswordComponent', () => {
     })
     it('should have a repeat password input', ()=>{
       const repeatPasswordInput = fixture.debugElement.query(By.css('[data-jest="repeat-password-input"]'))
-      expect(repeatPasswordInput.nativeElement.textContent).toContain("New password")
+      expect(repeatPasswordInput.nativeElement.textContent).toContain("Repeat password")
     })
     it('should have a description text: "Remember that you new password must be different from previously used password"', ()=>{
       const descriptionText = fixture.debugElement.query(By.css('[data-jest="description-text"]'))
@@ -45,5 +54,26 @@ describe('CreateNewPasswordComponent', () => {
       expect(createPasswordButton.nativeElement.textContent).toContain("Create")
     })
   })
-  describe('Functional Agreements', ()=>{})
+  describe('Functional Agreements', ()=>{
+    let router: Router;
+
+    beforeEach(() => {
+      router = TestBed.inject(Router)
+    })
+
+    describe( 'Create new password button', () =>{
+      it('should call navigateToHome', () => {
+        const createNewPasswordButton = fixture.debugElement.nativeElement.querySelector('[data-jest="create-password-button"]')
+        const navigateActionSpy = jest.spyOn(fixture.debugElement.componentInstance, 'navigateToHome')
+        createNewPasswordButton.click()
+        expect(navigateActionSpy).toHaveBeenCalled()
+      })
+      it('should trigger the navigation event', () => {
+        const createNewPasswordButton = fixture.debugElement.nativeElement.querySelector('[data-jest="create-password-button"]')
+        const routerNavigate = jest.spyOn(TestBed.inject(Router), 'navigate')
+        createNewPasswordButton.click()
+        expect(routerNavigate).toHaveBeenCalledWith(['.'], {relativeTo: null})
+      })
+    })
+  })
 });

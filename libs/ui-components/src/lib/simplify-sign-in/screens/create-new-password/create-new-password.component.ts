@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Router} from "@angular/router";
+import {RelativeRootRouteService} from "../../../shared/relative-root-route.service";
 
 @Component({
   selector: 'katita-create-new-password',
@@ -8,9 +10,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class CreateNewPasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected router: Router, public relativeRoot: RelativeRootRouteService) { }
 
   ngOnInit(): void {
+  }
+  navigateToHome(){
+    return this.router.navigate(['.'], { relativeTo: this.relativeRoot.root })
   }
 
 }
