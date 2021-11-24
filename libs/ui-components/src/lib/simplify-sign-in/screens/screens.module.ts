@@ -8,6 +8,9 @@ import {TuiInputModule} from "@taiga-ui/kit";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TuiLinkModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
 import { RegisterComponent } from './register/register.component';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { CheckEmailComponent } from './check-email/check-email.component';
+import { CreateNewPasswordComponent } from './create-new-password/create-new-password.component';
 
 
 
@@ -15,7 +18,10 @@ import { RegisterComponent } from './register/register.component';
   declarations: [
     WelcomeComponent,
     LogInComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordRecoveryComponent,
+    CheckEmailComponent,
+    CreateNewPasswordComponent
   ],
     imports: [
         CommonModule,

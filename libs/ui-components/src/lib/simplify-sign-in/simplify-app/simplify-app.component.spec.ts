@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SimplifyAppComponent } from './simplify-app.component';
+import {ActivatedRoute} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('SimplifyAppComponent', () => {
   let component: SimplifyAppComponent;
@@ -8,7 +10,8 @@ describe('SimplifyAppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SimplifyAppComponent ]
+      declarations: [ SimplifyAppComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   });

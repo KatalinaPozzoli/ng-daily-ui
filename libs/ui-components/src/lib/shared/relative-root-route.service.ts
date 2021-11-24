@@ -5,9 +5,17 @@ import {ActivatedRoute} from "@angular/router";
 @Injectable({
   providedIn: 'root'
 })
-export class RelativeRootRouteService extends BehaviorSubject<ActivatedRoute>{
-  public get root(): ActivatedRoute {
-    return this.value
+export class RelativeRootRouteService {
+  private source$: BehaviorSubject<ActivatedRoute | null> = new BehaviorSubject<ActivatedRoute | null>(null);
+  constructor() {
+
   }
-  public root$: Observable<ActivatedRoute> = this.asObservable()
+  public get root(): ActivatedRoute | null {
+    return this.source$.value
+  }
+  public root$: Observable<ActivatedRoute | null> = this.source$.asObservable()
+
+  setSource(value: ActivatedRoute){
+    this.source$.next(value)
+  }
 }

@@ -11,7 +11,7 @@ import {RelativeRootRouteService} from "../../shared/relative-root-route.service
 export class SimplifyAppComponent implements OnInit {
 
   constructor(protected route: ActivatedRoute, protected relativeRoot: RelativeRootRouteService) {
-    this.relativeRoot.next(route.parent || this.route)
+    this.relativeRoot.setSource(route.parent || this.route)
   }
 
   ngOnInit(): void {

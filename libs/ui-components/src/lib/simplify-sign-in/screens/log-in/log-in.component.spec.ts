@@ -19,7 +19,7 @@ describe('LogInComponent', () => {
       declarations: [LogInComponent],
       imports: [RouterTestingModule.withRoutes([
         { path: 'home', component: TestComponent },
-        { path: 'recover-password', component: TestComponent },
+        { path: 'password-recovery', component: TestComponent },
         { path: 'register', component: RegisterComponent }
       ])]
     })
@@ -88,7 +88,7 @@ describe('LogInComponent', () => {
         const logInButton = fixture.debugElement.nativeElement.querySelector('[data-jest=log-in-button]')
         const routerNavigate = jest.spyOn(TestBed.inject(Router), 'navigate')
         logInButton.click()
-        expect(routerNavigate).toHaveBeenCalledWith(['home'])
+        expect(routerNavigate).toHaveBeenCalledWith(['.'], {relativeTo: null})
       })
     })
     describe('Forgot Password Link', () => {
@@ -96,7 +96,7 @@ describe('LogInComponent', () => {
         const forgotPasswordLink: DebugElement = fixture.debugElement.query(By.css('[data-jest=forgot-password-link]'))
         forgotPasswordLink.nativeElement.click()
         tick();
-        expect(router.url).toBe(`/recover-password`)
+        expect(router.url).toBe(`/password-recovery`)
       }))
     })
     describe('Register Link', () => {

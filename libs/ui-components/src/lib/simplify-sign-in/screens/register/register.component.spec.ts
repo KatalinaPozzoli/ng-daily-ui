@@ -17,7 +17,7 @@ describe('RegisterComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ RegisterComponent ],
       imports: [RouterTestingModule.withRoutes([
-        {path: 'logIn', component: TestComponent}
+        {path: 'login', component: TestComponent}
       ])]
     })
     .compileComponents();
@@ -84,7 +84,7 @@ describe('RegisterComponent', () => {
         const registerButton = fixture.debugElement.query(By.css('[data-jest=register-button]'))
         const routerNavigate = jest.spyOn(TestBed.inject(Router), 'navigate')
         registerButton.nativeElement.click()
-        expect(routerNavigate).toHaveBeenCalledWith(['home'])
+        expect(routerNavigate).toHaveBeenCalledWith(['.'], { relativeTo: null })
       })
     })
     describe('Login Link', () => {
@@ -92,7 +92,7 @@ describe('RegisterComponent', () => {
         const logInLink = fixture.debugElement.query(By.css('[data-jest=log-in-link]'))
         logInLink.nativeElement.click()
         tick()
-        expect(router.url).toBe('/logIn')
+        expect(router.url).toBe('/login')
       }))
     })
   })

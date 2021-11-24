@@ -11,7 +11,7 @@
     <tui-input data-jest="password-input" class="log-in-form__input" tuiTextfieldExampleText="Enter your password">
       Password
     </tui-input>
-      <a tuiLink data-jest="forgot-password-link" [routerLink]="['recover-password']" class="log-in-form__link">¿Forgot password?</a>
+      <a tuiLink data-jest="forgot-password-link" [routerLink]="['password-recovery']" [relativeTo]="relativeRoot.root$ | async"class="log-in-form__link">¿Forgot password?</a>
     </div>
     <div class="form__buttons">
     <button data-jest=log-in-button class="log-in-form__button" (click)="navigateToHome()"> Log In </button>

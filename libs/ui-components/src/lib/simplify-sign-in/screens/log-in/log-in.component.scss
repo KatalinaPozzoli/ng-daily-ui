@@ -17,21 +17,21 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
     &__form{
       grid-area: form;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
     &__cta{
       grid-area: cta;
       display: flex;
       justify-content: start;
       align-items: center;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
     &__title{
@@ -41,13 +41,14 @@
       font-weight: 500;
       font-size: 24px;
       line-height: 30px;
-      text-align: Left;
-      margin-bottom: 6px;
+      text-align: center;
+      margin-bottom: 8px;
     }
     &__subtitle{
       margin-top: 0;
       font-family: "SF Pro Text", sans-serif, monospace;
       font-weight: 500;
+      text-align: center;
       color: white;
       font-size: 18px;
       line-height: 21px;
@@ -68,9 +69,8 @@
       font-family: "SF Pro Text", sans-serif, monospace;
       font-size: 14px;
       letter-spacing: -0.17px;
-      color: #BEB5AE;
+      color: #908E8D;
       display: flex;
-      justify-content: flex-end;
       margin-bottom: 16px;
     }
     &__button{
