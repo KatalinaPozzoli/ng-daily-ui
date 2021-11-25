@@ -45,10 +45,6 @@ describe('CreateNewPasswordComponent', () => {
       const repeatPasswordInput = fixture.debugElement.query(By.css('[data-jest="repeat-password-input"]'))
       expect(repeatPasswordInput.nativeElement.textContent).toContain("Repeat password")
     })
-    it('should have a description text: "Remember that you new password must be different from previously used password"', ()=>{
-      const descriptionText = fixture.debugElement.query(By.css('[data-jest="description-text"]'))
-      expect(descriptionText.nativeElement.textContent).toContain("Remember that you new password must be different from previously used password" )
-    })
     it('should have a button: "Create"',()=>{
       const createPasswordButton = fixture.debugElement.query(By.css('[data-jest="create-password-button"]'))
       expect(createPasswordButton.nativeElement.textContent).toContain("Create")
