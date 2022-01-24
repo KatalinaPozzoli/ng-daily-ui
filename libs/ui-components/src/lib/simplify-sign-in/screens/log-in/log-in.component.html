@@ -5,16 +5,19 @@
 <section class="log-in__form">
   <form [formGroup]="logInForm" class="log-in-form">
     <div class="form__inputs">
-    <tui-input data-jest="user-input" class="log-in-form__input" tuiTextfieldExampleText="Enter your user">
+    <tui-input data-jest="user-input" class="log-in-form__input" tuiTextfieldExampleText="Enter your user" formControlName="userName">
       User
     </tui-input>
-    <tui-input data-jest="password-input" class="log-in-form__input" tuiTextfieldExampleText="Enter your password">
+     <!-- <p *ngIf="logInForm.get('userName').hasError('required') && logInForm.get('userName').touched"> this field is required</p> -->
+      <tui-field-error formControlName="userName"></tui-field-error>
+    <tui-input-password data-jest="password-input" class="log-in-form__input" tuiTextfieldExampleText="Enter your password" formControlName="password">
       Password
-    </tui-input>
+    </tui-input-password>
+      <tui-field-error formControlName="password"></tui-field-error>
       <a tuiLink data-jest="forgot-password-link" [routerLink]="['password-recovery']" [relativeTo]="relativeRoot.root$ | async"class="log-in-form__link">¿Forgot password?</a>
     </div>
-    <div class="form__buttons">
-    <button data-jest=log-in-button class="log-in-form__button" (click)="navigateToHome()"> Log In </button>
+    <div class="form__button">
+      <katita-simplify-button data-jest=log-in-button (click)="navigateToHome()" disabled> Log In </katita-simplify-button>
     </div>
   </form>
 </section>

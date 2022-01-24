@@ -28,7 +28,8 @@
       font-weight: 500;
       &--highlighted{
         color: #8F9B8D;
-        font-weight: 500;
+        font-weight: 600;
+
       }
     }
     &__title{
@@ -44,23 +45,6 @@
     &__slogan{
       margin-top: 0;
       letter-spacing: -0.17px;
-    }
-    &__get-started-button{
-      font-family: "SF Pro Text", sans-serif, monospace;
-      color: #565656;
-      background-color: #E9E5DF;
-      border: none;
-      border-radius: 25px;
-      width: 100%;
-      max-width: 327px;
-      height: 50px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-      cursor: pointer;
-
-      &:hover{
-        box-shadow: 0 7px 14px rgba(0,0,0,0.17), 0 5px 5px rgba(0,0,0,0.15);
-      }
     }
   }
 }

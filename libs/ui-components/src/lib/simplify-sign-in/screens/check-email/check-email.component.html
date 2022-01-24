@@ -8,7 +8,7 @@
   <h3 data-jest="description-text" class="check-email__description-text">We have sent a password recovery instructions to your email </h3>
 </section>
 
-<button data-jest="go-it-button" (click)="createNewPassword()" class="check-email__button"> Go It!</button>
+<katita-simplify-button data-jest="go-it-button" (click)="createNewPassword()" class="check-email__button"> Go It!</katita-simplify-button>
 <div class="check-email__cta">
   <p data-jest="bottom-text"> Did not received the email? Check your spam filter or </p>
   <a tuiLink href="" data-jest="back-to-password-link" routerLink="password-recovery" [relativeTo]="relativeRoot.root">try with another email address</a>

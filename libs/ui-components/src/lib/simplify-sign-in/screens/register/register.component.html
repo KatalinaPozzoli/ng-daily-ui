@@ -2,24 +2,28 @@
   <h1 data-jest="title" class="register__title">¡Welcome!</h1>
 </section>
 <section class="register__form-section">
-  <form class="register-form">
+  <form [formGroup]="registerForm" class="register-form">
     <div class="form__inputs">
-      <tui-input data-jest="name-input" class="register-form__input" tuiTextfieldExampleText="Enter your name">
+      <tui-input data-jest="name-input" class="register-form__input" tuiTextfieldExampleText="Enter your name" formControlName="name">
         Name
       </tui-input>
-      <tui-input data-jest="user-input" class="register-form__input" tuiTextfieldExampleText="Enter your user">
+      <tui-field-error formControlName="name"></tui-field-error>
+      <tui-input data-jest="user-input" class="register-form__input" tuiTextfieldExampleText="Enter your user" formControlName="userName">
         User
       </tui-input>
-      <tui-input data-jest="password-input" class="register-form__input" tuiTextfieldExampleText="Enter your password">
+      <tui-field-error formControlName="userName"></tui-field-error>
+      <tui-input-password data-jest="password-input" class="register-form__input" tuiTextfieldExampleText="Enter your password" formControlName="password">
         Password
-      </tui-input>
-      <tui-input data-jest="repeat-password-input" class="register-form__input" tuiTextfieldExampleText="Repeat your password">
+      </tui-input-password>
+      <tui-field-error formControlName="password"></tui-field-error>
+      <tui-input-password data-jest="repeat-password-input" class="register-form__input" tuiTextfieldExampleText="Repeat your password" formControlName="repeatedPassword">
         Repeat Password
-      </tui-input>
+      </tui-input-password>
+      <tui-field-error formControlName="repeatedPassword"></tui-field-error>
     </div>
-   <div class="form__buttons">
-     <button data-jest=register-button class="register-form__button" (click)="navigateToHome()"> Register </button>
-   </div>
+    <div class="form__button">
+      <katita-simplify-button data-jest=register-button (click)="navigateToHome()" disabled> Register </katita-simplify-button>
+    </div>
   </form>
 </section>
 <section class="register__cta-section">
